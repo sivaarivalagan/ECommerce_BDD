@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extentreports>
+    <configuration>
+        <encoding>UTF-8</encoding>
+        <documentTitle>Inmarsat Reporting</documentTitle>
+        <reportName>Extent Reports</reportName>
+        <reportHeadline>1.0</reportHeadline>
+    </configuration>
+</extentreports>

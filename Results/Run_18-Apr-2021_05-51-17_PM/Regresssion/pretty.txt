@@ -1,0 +1,26 @@
+#Author: sivasurya.prasand@qualitestgroup.com
+#Keywords Summary : E-Commerce Automation
+@tag
+Feature: Web Automation Task
+
+  Background:                                    # WebAutomationTask.feature:6
+    Given user launch the e-commerce application # GeneralStepDefs.launchApplication()
+Scenario passed
+
+  @ECommerce @OrderTShirt
+  Scenario: Order T-Shirt (and Verify in Order History) # WebAutomationTask.feature:11
+    Given user able to login the application            # LoginStepDefs.userAbleToLogin()
+    Then user adds a product to the cart                # MainPageStepDefs.addProductToCart()
+    Then checks out and Order the product               # MainPageStepDefs.checkOutAndOrder()
+    And logout the Application                          # LoginStepDefs.iLogout()
+
+  Background:                                    # WebAutomationTask.feature:6
+    Given user launch the e-commerce application # GeneralStepDefs.launchApplication()
+Scenario passed
+
+  @ECommerce @PersonalInfoEdit
+  Scenario: Update Personal Information (First Name) in My Account # WebAutomationTask.feature:21
+    Given user able to login the application                       # LoginStepDefs.userAbleToLogin()
+    And navigate to Personal Info page                             # MainPageStepDefs.navigateToPersonalInfo()
+    Then Update the first name                                     # MainPageStepDefs.updateFirstName()
+    And logout the Application                                     # LoginStepDefs.iLogout()

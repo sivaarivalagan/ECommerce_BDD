@@ -1,0 +1,442 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- The Basics -->
+	<groupId>com</groupId>
+	<artifactId>Inmarsat_SFDC_Cucumber</artifactId>
+	<name>Inmarsat Cucumber TestNG Framework</name>
+	<version>3.2</version>
+	<packaging>jar</packaging>
+	<url>http://maven.apache.org</url>
+
+	<repositories>
+		<repository>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</releases>
+			<id>Experitest.repo1</id>
+			<name>YourName</name>
+			<url>https://cloud.experitest.com/repo/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<source.and.target.JVM.version>1.8</source.and.target.JVM.version>
+		<org.apache.maven.plugins.maven-compiler-plugin.version>3.8.0</org.apache.maven.plugins.maven-compiler-plugin.version>
+		<org.apache.maven.plugins.maven-surefire-plugin.version>2.22.0</org.apache.maven.plugins.maven-surefire-plugin.version>
+		<org.codehaus.mojo.exec-maven-plugin.version>1.6.0</org.codehaus.mojo.exec-maven-plugin.version>
+		<aspectj.version>1.8.4</aspectj.version>
+		<allure.version>1.5.2</allure.version>
+	</properties>
+
+	<!-- Build Settings -->
+	<build>
+		<resources>
+			<resource>
+				<directory>Resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+
+			<!--This dependency is used for,Maven Surefire MOJO in maven-surefire-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.16</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>src/test/resources/TestNGRunRegressionTests.xml</suiteXmlFile>
+					</suiteXmlFiles>
+					<forkMode>never</forkMode>
+					<testFailureIgnore>true</testFailureIgnore>
+					<scope>integration-test</scope>
+					<systemPropertyVariables>
+						<environment>Test</environment>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+
+			<!--This dependency is used for,the Compiler Plugin is used to compile 
+				the sources of your project -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+					<systemPropertyVariables>
+						<environment>${env.ENV}</environment>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!--This dependency is used for,Cucumber JVM Repackaged Dependencies -->
+	<dependencies>
+	
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.17</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-jvm-deps</artifactId>
+			<version>1.0.5</version>
+		</dependency>
+
+		<!--This dependency is used for,Cucumber JVM: Java -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+
+		<!--This dependency is used for,Testing framework for Java --> 
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.11</version>
+		</dependency>
+
+		<!--This dependency is used for,Cucumber JVM: TestNG -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+
+
+		<!-- <dependency> <groupId>org.seleniumhq.selenium</groupId> <artifactId>selenium-java</artifactId> 
+			<version>3.12.0</version> </dependency> -->
+
+		<!-- This dependency is used for,Selenium automates browsers. That's it! 
+			What you do with that power is entirely up to you -->
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.14.0</version>
+		</dependency>
+
+		<!-- This dependency is used for,Selenium automates browsers. That's it! 
+			What you do with that power is entirely up to you -->
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-firefox-driver</artifactId>
+			<version>3.11.0</version>
+		</dependency>
+
+		<!-- This dependency is used for,Log4j Core -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<!-- This dependency is used for,The Apache Commons IO library contains 
+			utility classes, stream implementations, file filters, file comparators, 
+			endian transformation classes, and much more. -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<!-- This dependency is used for,a simple Java toolkit for JSON -->
+		<dependency>
+			<!-- Required by JSONReportMerger -->
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<!-- This dependency is used for,library generating different Cucumber 
+			reports.Below jars are for pretty reporting -->
+		<dependency>
+			<groupId>com.github.mkolisnyk</groupId>
+			<artifactId>cucumber-reports</artifactId>
+			<version>1.0.5</version>
+		</dependency>
+
+		<!-- Added for JIRA Integration -->
+		<!-- This dependency is used for,Jersey Client -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>1.19.4</version>
+		</dependency>
+
+		<!-- This dependency is used for,Jersey Core -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-core</artifactId>
+			<version>1.19.4</version>
+		</dependency>
+
+		<!-- This dependency is used for,Java API for RESTful Web Services -->
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+
+		<!-- Extent Reporting -->
+
+		<!-- This dependency is used for,a custom cucumber html report generated 
+			by ExtentsReport -->
+		<dependency>
+			<groupId>com.vimalselvam</groupId>
+			<artifactId>cucumber-extentsreport</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<!-- This dependency is used for,Extent Framework -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+
+		<!-- Allure reporting -->
+		<!-- This dependency is used for,Allure Cucumber JVM Adaptor -->
+		<dependency>
+			<groupId>ru.yandex.qatools.allure</groupId>
+			<artifactId>allure-cucumber-jvm-adaptor</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+		<!-- This dependency is used for,Allure Core -->
+		<dependency>
+			<groupId>ru.yandex.qatools.allure</groupId>
+			<artifactId>allure-core</artifactId>
+			<version>${allure.version}</version>
+			<type>pom</type>
+		</dependency>
+
+		<!-- This dependency is used for,Allure Java Aspects -->
+		<dependency>
+			<groupId>ru.yandex.qatools.allure</groupId>
+			<artifactId>allure-java-aspects</artifactId>
+			<version>${allure.version}</version>
+			<type>jar</type>
+		</dependency>
+
+		<!-- This dependency is used for,Allure Commons -->
+		<dependency>
+			<groupId>ru.yandex.qatools.allure</groupId>
+			<artifactId>allure-commons</artifactId>
+			<version>${allure.version}</version>
+			<type>jar</type>
+		</dependency>
+
+		<!-- Rest Assured -->
+
+		<!-- This dependency is used for,Java DSL for easy testing of REST services -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>3.1.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- This dependency is used for,the Apache Commons Codec package contains 
+			simple encoder and decoders for various formats such as Base64 and Hexadecimal. 
+			In addition to these widely used encoders and decoders, the codec package 
+			also maintains a collection of phonetic encoding utilities -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.11</version>
+		</dependency>
+
+		<!-- This dependency is used for,Apache Commons Lang,a package of Java 
+			utility classes for the classes that are in java.lang's hierarchy, or are 
+			considered to be so standard as to justify existence in java.lang -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.7</version>
+		</dependency>
+
+		<!-- This dependency is used for,Apache Commons Logging is a thin adapter 
+			allowing configurable bridging to other, well known logging systems -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- This dependency is used for,Groovy: A powerful, dynamic language for 
+			the JVM -->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy</artifactId>
+			<version>2.4.15</version>
+		</dependency>
+
+		<!-- This dependency is used for,Groovy: A powerful, dynamic language for 
+			the JVM -->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-json</artifactId>
+			<version>2.4.15</version>
+		</dependency>
+
+		<!-- This dependency is used for,Groovy: A powerful, dynamic language for 
+			the JVM -->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-xml</artifactId>
+			<version>2.4.15</version>
+		</dependency>
+
+		<!-- This dependency is used for,Groovy: A powerful,Core Hamcrest API - 
+			deprecated, please use "hamcrest" instead -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- This dependency is used for,Mock objects library for java -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- This dependency is used for,JUnit is a unit testing framework for 
+			Java, created by Erich Gamma and Kent Beck -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- This dependency is used for,A library of Hamcrest matchers - deprecated, 
+			please use "hamcrest" instead -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-library</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- This dependency is used for,Apache HttpComponents Client -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.6</version>
+		</dependency>
+
+		<!-- This dependency is used for,Apache HttpComponents Core (blocking I/O) -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4.10</version>
+		</dependency>
+
+		<!-- This dependency is used for,A custom bundle that wraps httpmime -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.5.6</version>
+		</dependency>
+
+		<!-- This dependency is used for,JAXB API -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+
+		<!-- This dependency is used for,TagSoup is a SAX-compliant parser written 
+			in Java that, instead of parsing well-formed or valid XML, parses HTML as 
+			it is found in the wild: poor, nasty and brutish, though quite often far 
+			from short. TagSoup is designed for people who have to process this stuff 
+			using some semblance of a rational application design. By providing a SAX 
+			interface, it allows standard XML tools to be applied to even the worst HTML. 
+			TagSoup also includes a command-line processor that reads HTML files and 
+			can generate either .. -->
+		<dependency>
+			<groupId>org.ccil.cowan.tagsoup</groupId>
+			<artifactId>tagsoup</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<!-- This dependency is used for,JSON is a light-weight, language independent, 
+			data interchange format. See http://www.JSON.org/ The files in this package 
+			implement JSON encoders/decoders in Java. It also includes the capability 
+			to convert between JSON and XML, HTTP headers, Cookies, and CDL. This is 
+			a reference implementation. There is a large number of JSON packages in Java. 
+			Perhaps someday the Java community will standardize on one. Until then, choose 
+			carefully. The license includes this restriction: "The software ... -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20180130</version>
+		</dependency>
+
+		<!-- This dependency is used for,The slf4j API -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+
+		<!-- This dependency is used for,the SLF4J LOG4J-12 Binding -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+		<!-- This dependency is used for,Data Mapper package is a high-performance 
+			data binding package built on Jackson JSON processor -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-configuration2 -->
+		<!-- This dependency is used for,tools to assist in the reading of configuration/preferences 
+			files in various formats -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-configuration2</artifactId>
+			<version>2.0</version>
+		</dependency>
+
+	</dependencies>
+
+</project>
+

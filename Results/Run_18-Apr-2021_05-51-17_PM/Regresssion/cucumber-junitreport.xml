@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="2" time="138.403131">
+<testcase classname="Web Automation Task" name="Order T-Shirt (and Verify in Order History)" time="86.24923">
+<system-out><![CDATA[Given user launch the e-commerce application................................passed
+Given user able to login the application....................................passed
+Then user adds a product to the cart........................................passed
+Then checks out and Order the product.......................................passed
+And logout the Application..................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Web Automation Task" name="Update Personal Information (First Name) in My Account" time="52.153901">
+<system-out><![CDATA[Given user launch the e-commerce application................................passed
+Given user able to login the application....................................passed
+And navigate to Personal Info page..........................................passed
+Then Update the first name..................................................passed
+And logout the Application..................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" configfailurepolicy="continue" guice-stage="DEVELOPMENT" name="Failed suite [Run Test Cukes]" parallel="tests">
+  <listeners>
+    <listener class-name="com.at.crm.salesforce.framework.WebDriverListener"/>
+  </listeners>
+  <test name="Regression Tests(failed)" parallel="tests">
+    <parameter name="BrowserName" value="CHROME"/>
+    <parameter name="ExecutionMode" value="LOCAL"/>
+    <classes>
+      <class name="com.at.crm.salesforce.runners.RunCucumberTestRegressionLocal">
+        <methods>
+          <include name="afterTest"/>
+          <include name="beforeSuite"/>
+          <include name="setUpClass"/>
+          <include name="feature" invocation-numbers="0"/>
+          <include name="beforeClass"/>
+          <include name="afterSuite"/>
+          <include name="afterClass"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- com.at.crm.salesforce.runners.RunCucumberTestRegressionLocal -->
+    </classes>
+  </test> <!-- Regression Tests(failed) -->
+</suite> <!-- Failed suite [Run Test Cukes] -->

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Run Test Cukes" duration-ms="144700" started-at="2021-04-18T12:21:17Z" finished-at="2021-04-18T12:23:41Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.at.ecom.shopping.runners.RunCucumberTestRegressionLocal@1a38c59b]" name="Regression Tests - feature - " class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Regression Tests" duration-ms="144700" started-at="2021-04-18T12:21:17Z" finished-at="2021-04-18T12:23:41Z">
+      <class name="com.at.ecom.shopping.runners.RunCucumberTestRegressionLocal">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.at.ecom.shopping.runners.RunCucumberTestRegressionLocal@1a38c59b]" name="beforeSuite" is-config="true" duration-ms="91" started-at="2021-04-18T17:51:17Z" finished-at="2021-04-18T17:51:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.at.ecom.shopping.runners.RunCucumberTestRegressionLocal@1a38c59b]" name="setUpClass" is-config="true" duration-ms="1201" started-at="2021-04-18T17:51:17Z" finished-at="2021-04-18T17:51:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.at.ecom.shopping.runners.RunCucumberTestRegressionLocal@1a38c59b]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-04-18T17:51:18Z" finished-at="2021-04-18T17:51:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:com.at.ecom.shopping.runners.RunCucumberTestRegressionLocal@1a38c59b]" name="Regression Tests - feature - " duration-ms="139720" started-at="2021-04-18T17:51:18Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2021-04-18T17:53:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Web Automation Task]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Regression Tests - feature -  -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.at.ecom.shopping.runners.RunCucumberTestRegressionLocal@1a38c59b]" name="afterClass" is-config="true" duration-ms="13" started-at="2021-04-18T17:53:38Z" finished-at="2021-04-18T17:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.at.ecom.shopping.runners.RunCucumberTestRegressionLocal@1a38c59b]" name="tearDownClass" is-config="true" duration-ms="1682" started-at="2021-04-18T17:53:38Z" finished-at="2021-04-18T17:53:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.at.ecom.shopping.runners.RunCucumberTestRegressionLocal@1a38c59b]" name="afterTest" is-config="true" duration-ms="1713" started-at="2021-04-18T17:53:40Z" finished-at="2021-04-18T17:53:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.at.ecom.shopping.runners.RunCucumberTestRegressionLocal@1a38c59b]" name="afterSuite" is-config="true" duration-ms="333" started-at="2021-04-18T17:53:41Z" finished-at="2021-04-18T17:53:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.at.ecom.shopping.runners.RunCucumberTestRegressionLocal -->
+    </test> <!-- Regression Tests -->
+  </suite> <!-- Run Test Cukes -->
+</testng-results>
